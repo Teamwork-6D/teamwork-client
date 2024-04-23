@@ -20,14 +20,7 @@ function App() {
           </ProtectAuthRoute>
         }
       />
-      <Route
-        path="/auth"
-        element={
-        
-            <AuthPage />
-
-        }
-      />
+      <Route path="/auth" element={<AuthPage />} />
       <Route
         path="/projects"
         element={
