@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import './styles.css';
+import ProjectList from "../../components/project/project-list";
+
+import "./styles.css";
 
 function ProjectPage() {
-    return (
-        <section>
-            <p>Project list page</p>
-        </section>
-    )
+  return (
+    <section>
+      <ProjectList />
+    </section>
+  );
 }
-
 
 export default ProjectPage;

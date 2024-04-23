@@ -5,22 +5,22 @@ import LandingPage from "./pages/landing";
 import MainPage from "./pages/main";
 import ProjectPage from "./pages/project";
 import AuthPage from "./pages/auth";
-import { ProtectMainRoute, ProtectAuthRoute } from "./components/router";
+import { ProtectAuthRoute, ProtectMainRoute } from "./components/router";
 
 import "./App.css";
 
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage />} />
       <Route
-        path="/"
+        path="/auth"
         element={
           <ProtectAuthRoute>
-            <LandingPage />
+            <AuthPage />
           </ProtectAuthRoute>
         }
       />
-      <Route path="/auth" element={<AuthPage />} />
       <Route
         path="/projects"
         element={

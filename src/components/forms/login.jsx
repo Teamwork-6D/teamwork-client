@@ -1,15 +1,40 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { app } from "../../constants";
 
 import "./styles.css";
 
 function LoginForm({ moveTo }) {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("will handle login");
+    setLoading(true);
+
+    fetch(`${app.server_url}/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then(async (res) => {
+        const result = await res.json();
+        const { user } = result;
+        setLoading(false);
+        localStorage.setItem("user", JSON.stringify(user));
+        navigate("/projects");
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError("Login failed");
+      });
   }
 
   return (
@@ -23,6 +48,7 @@ function LoginForm({ moveTo }) {
             name="email"
             id="email"
             placeholder="Email"
+            required
             onChange={(e) => {
               setEmail(e.target.value);
             }}
@@ -33,13 +59,15 @@ function LoginForm({ moveTo }) {
             name="password"
             id="password"
             placeholder="Password"
+            required
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-          <button className="button" onClick={handleSubmit}>
-            Login
+          <button className="button" onClick={handleSubmit} disabled={loading}>
+            {loading ? "loading..." : "Login"}
           </button>
+          {error.length > 0 && <p>Error: {`${error}`}</p>}
         </form>
         <p className="link">
           Don't have an account?

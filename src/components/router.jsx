@@ -1,27 +1,22 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
+import React from "react";
+import { Navigate } from "react-router-dom";
 
+export function ProtectMainRoute({ children }) {
+  const user = JSON.parse(localStorage.getItem("user"));
 
-export function ProtectMainRoute({children}) {
+  if (!user || user === null) {
+    return <Navigate to="/" />;
+  }
 
-    const user = localStorage.getItem('user');
-
-    if(!user || user === null) {
-        return <Navigate to='/' />
-    }
-
-
-    return children
+  return children;
 }
 
-export function ProtectAuthRoute({children}) {
+export function ProtectAuthRoute({ children }) {
+  const user = JSON.parse(localStorage.getItem("user"));
 
-    const user = localStorage.getItem('user');
+  if (user && user !== null) {
+    return <Navigate to="/projects" />;
+  }
 
-    if(user && user !== null) {
-        return <Navigate to='/projects' />
-    }
-
-
-    return children
+  return children;
 }
