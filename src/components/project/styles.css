@@ -43,3 +43,68 @@
 .project-item-btn {
   width: 75px;
 }
+
+.create-project-btn {
+  width: 250px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.popup-bg-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+}
+
+.create-project-popup {
+  width: 250px;
+  height: 160px;
+  border: 1px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: antiquewhite;
+  border-radius: 10px;
+  z-index: 3;
+}
+
+.popup-header-text {
+  text-align: center;
+}
+
+.create-project-popup-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.popup-input {
+  padding: 10px;
+  width: 80%;
+}
+
+.create-popup-btn-list {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  justify-content: center;
+}
+
+.popup-btn {
+  width: 90px;
+  height: 40px;
+}
