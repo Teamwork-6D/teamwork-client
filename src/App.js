@@ -7,7 +7,7 @@ import ProjectPage from "./pages/project";
 import AuthPage from "./pages/auth";
 import { ProtectMainRoute, ProtectAuthRoute } from "./components/router";
 
-import "./app.css";
+import "./App.css";
 
 function App() {
   return (
