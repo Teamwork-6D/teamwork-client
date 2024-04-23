@@ -1,0 +1,52 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #333; 
+    padding: 15px;
+    max-width: 300px;
+    width: 40%;    
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    text-align: center;
+  }
+
+
+  
+  .popup-content {
+  }
+  
+  button {
+    margin: 5px;
+    padding: 8px 20px;
+    cursor: pointer;
+  }
+  
+  #deleteButton {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    border: solid;
+  }
+  
+  #yesButton {
+    background-color: white;
+    color: black;
+    width: 100px;
+    border-radius: 10px;
+    border: solid;
+    padding: 10px;
+  }
+  
+  #noButton {
+    background-color: white;
+    color: black;
+    width: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid;
+  }
+  

@@ -5,7 +5,7 @@ import LandingPage from "./pages/landing";
 import MainPage from "./pages/main";
 import ProjectPage from "./pages/project";
 import AuthPage from "./pages/auth";
-import { ProtectMainRoute, ProtectAuthRoute } from "./components/router";
+// import { ProtectMainRoute, ProtectAuthRoute } from "./components/router";
 
 import "./App.css";
 
@@ -15,26 +15,21 @@ function App() {
       <Route
         path="/"
         element={
-          <ProtectAuthRoute>
-            <LandingPage />
-          </ProtectAuthRoute>
+
+          <LandingPage />
         }
       />
       <Route path="/auth" element={<AuthPage />} />
       <Route
         path="/projects"
         element={
-          <ProtectMainRoute>
-            <ProjectPage />
-          </ProtectMainRoute>
+          <ProjectPage />
         }
       />
       <Route
         path="/projects/:id"
         element={
-          <ProtectMainRoute>
-            <MainPage />
-          </ProtectMainRoute>
+          <MainPage />
         }
       />
     </Routes>
