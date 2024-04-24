@@ -66,8 +66,8 @@
 }
 
 .create-project-popup {
-  width: 250px;
-  height: 160px;
+  width: 300px;
+  height: 170px;
   border: 1px solid black;
   position: absolute;
   top: 50%;
@@ -76,6 +76,7 @@
   background-color: antiquewhite;
   border-radius: 10px;
   z-index: 3;
+  padding: 15px;
 }
 
 .popup-header-text {

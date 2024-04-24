@@ -12,7 +12,11 @@ import "./App.css";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={
+        <ProtectAuthRoute>
+          <LandingPage />
+        </ProtectAuthRoute>
+      } />
       <Route
         path="/auth"
         element={

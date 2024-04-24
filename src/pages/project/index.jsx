@@ -2,13 +2,18 @@ import React, { useState, useEffect } from "react";
 import { app } from "../../constants";
 
 import ProjectList from "../../components/project/project-list";
-import { CreateProjectPopup } from "../../components/project/popups";
+import {
+  CreateProjectPopup,
+  DeleteProjectPopup,
+} from "../../components/project/popups";
 
 import "./styles.css";
 
 function ProjectPage() {
   const [projects, setProjects] = useState([]);
   const [showCreateProjectPopup, setShowCreatePopup] = useState(false);
+  const [showDeleteProjectPopup, setShowDeleteProjectPopup] = useState(false);
+  const [selectedProject, setSelectedProject] = useState({});
 
   function handleGetAllUserProjects() {
     const userData = JSON.parse(localStorage.getItem("user"));
@@ -37,9 +42,13 @@ function ProjectPage() {
     <section className="project-page">
       <ProjectList
         projects={projects}
-        openModal={() => {
+        openCreateProjectPopup={() => {
           setShowCreatePopup(true);
         }}
+        openDeleteProjectPopup={() => {
+          setShowDeleteProjectPopup(true);
+        }}
+        setSelectedProject={setSelectedProject}
       />
       {showCreateProjectPopup && (
         <CreateProjectPopup
@@ -47,6 +56,15 @@ function ProjectPage() {
           closeModal={() => {
             setShowCreatePopup(false);
           }}
+        />
+      )}
+      {showDeleteProjectPopup && (
+        <DeleteProjectPopup
+          project={selectedProject}
+          closeModal={() => {
+            setShowDeleteProjectPopup(false);
+          }}
+          getAllProjects={handleGetAllUserProjects}
         />
       )}
     </section>
