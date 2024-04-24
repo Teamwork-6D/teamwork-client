@@ -118,3 +118,60 @@ export function DeleteProjectPopup({ project, closeModal, getAllProjects }) {
     </>
   );
 }
+
+export function EditProjectPopup({ project, closeModal, getAllProjects }) {
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [projectName, setProjectName] = useState(project.title);
+
+  function handleEditProject() {
+    fetch(`${app.server_url}/projects/${project._id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userData.token}`,
+      },
+      body: JSON.stringify({ title: projectName }),
+    })
+      .then((res) => {
+        getAllProjects();
+        setLoading(false);
+        closeModal();
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError("Failed to edit project");
+      });
+  }
+
+  return (
+    <>
+      <section className="popup-bg-overlay"></section>
+      <section className="create-project-popup">
+        <h4 className="popup-header-text">Edit Project</h4>
+        <section className="create-project-popup-content">
+          {error && <p>Error: {error}</p>}
+          <input
+            className="popup-input"
+            type="text"
+            placeholder="enter project name"
+            value={projectName}
+            onChange={(e) => setProjectName(e.target.value)}
+          />
+          <div className="create-popup-btn-list">
+            <button
+              className="popup-btn"
+              onClick={handleEditProject}
+              disabled={loading}
+            >
+              {loading ? "saving..." : "save"}
+            </button>
+            <button className="popup-btn" onClick={closeModal}>
+              close
+            </button>
+          </div>
+        </section>
+      </section>
+    </>
+  );
+}

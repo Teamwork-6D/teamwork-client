@@ -9,6 +9,7 @@ function ProjectList({
   openCreateProjectPopup,
   setSelectedProject,
   openDeleteProjectPopup,
+  openEditProjectPopup,
 }) {
   return (
     <section className="project-list-container">
@@ -21,6 +22,7 @@ function ProjectList({
               project={project}
               setSelectedProject={setSelectedProject}
               openDeleteProjectPopup={openDeleteProjectPopup}
+              openEditProjectPopup={openEditProjectPopup}
             />
           ))}
         <button className="create-project-btn" onClick={openCreateProjectPopup}>

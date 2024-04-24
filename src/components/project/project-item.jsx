@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import "./styles.css";
 
-function ProjectItem({ project, setSelectedProject, openDeleteProjectPopup }) {
+function ProjectItem({
+  project,
+  setSelectedProject,
+  openDeleteProjectPopup,
+  openEditProjectPopup,
+}) {
   const navigate = useNavigate();
 
   return (
@@ -31,6 +36,7 @@ function ProjectItem({ project, setSelectedProject, openDeleteProjectPopup }) {
           className="project-item-btn"
           onClick={() => {
             setSelectedProject(project);
+            openEditProjectPopup();
           }}
         >
           edit

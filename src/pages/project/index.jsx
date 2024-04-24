@@ -5,6 +5,7 @@ import ProjectList from "../../components/project/project-list";
 import {
   CreateProjectPopup,
   DeleteProjectPopup,
+  EditProjectPopup,
 } from "../../components/project/popups";
 
 import "./styles.css";
@@ -13,6 +14,7 @@ function ProjectPage() {
   const [projects, setProjects] = useState([]);
   const [showCreateProjectPopup, setShowCreatePopup] = useState(false);
   const [showDeleteProjectPopup, setShowDeleteProjectPopup] = useState(false);
+  const [showEditProjectPopup, setShowEditProjectPopup] = useState(false);
   const [selectedProject, setSelectedProject] = useState({});
 
   function handleGetAllUserProjects() {
@@ -48,6 +50,9 @@ function ProjectPage() {
         openDeleteProjectPopup={() => {
           setShowDeleteProjectPopup(true);
         }}
+        openEditProjectPopup={() => {
+          setShowEditProjectPopup(true);
+        }}
         setSelectedProject={setSelectedProject}
       />
       {showCreateProjectPopup && (
@@ -63,6 +68,15 @@ function ProjectPage() {
           project={selectedProject}
           closeModal={() => {
             setShowDeleteProjectPopup(false);
+          }}
+          getAllProjects={handleGetAllUserProjects}
+        />
+      )}
+      {showEditProjectPopup && (
+        <EditProjectPopup
+          project={selectedProject}
+          closeModal={() => {
+            setShowEditProjectPopup(false);
           }}
           getAllProjects={handleGetAllUserProjects}
         />
