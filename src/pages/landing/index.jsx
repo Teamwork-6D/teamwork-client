@@ -1,7 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles.css';
 
 function Header() {
+
+
+  const navigate = useNavigate()
+
   return (
     <header className="landing-header">
       <div className="header-content">
@@ -11,8 +16,8 @@ function Header() {
           <p>Our project management app helps teams collaborate, organize tasks, and track progress in one centralized platform.</p>
         </div>
         <div className="header-buttons">
-          <button className="login-button">Login</button>
-          <button className="signup-button">Sign Up</button>
+          <button className="login-button" onClick={() => navigate('/auth')}>Login</button>
+          <button className="signup-button" onClick={() => navigate('/auth')}>Sign Up</button>
         </div>
       </div>
     </header>
