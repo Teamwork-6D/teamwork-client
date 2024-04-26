@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { app } from "../../constants";
 
 import "./styles.css";
 
-const userData = JSON.parse(localStorage.getItem("user"));
+
 
 export function CreateProjectPopup({ getAllProjects, closeModal }) {
   const [projectName, setProjectName] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState({});
+
+
+    useEffect(() => {
+      const userInfo = JSON.parse(localStorage.getItem("user"));
+      if(userInfo && userInfo !== undefined && userInfo !== null) {
+        setUserData(userInfo)
+      }
+    }, [])
 
   function createProject(e) {
     e.preventDefault();
@@ -71,6 +80,15 @@ export function CreateProjectPopup({ getAllProjects, closeModal }) {
 export function DeleteProjectPopup({ project, closeModal, getAllProjects }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState({});
+
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("user"));
+    if(userInfo && userInfo !== undefined && userInfo !== null) {
+      setUserData(userInfo)
+    }
+  }, [])
 
   function handleDeleteProject() {
     fetch(`${app.server_url}/projects/${project._id}`, {
@@ -123,6 +141,15 @@ export function EditProjectPopup({ project, closeModal, getAllProjects }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [projectName, setProjectName] = useState(project.title);
+  const [userData, setUserData] = useState({});
+
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("user"));
+    if(userInfo && userInfo !== undefined && userInfo !== null) {
+      setUserData(userInfo)
+    }
+  }, [])
 
   function handleEditProject() {
     fetch(`${app.server_url}/projects/${project._id}`, {

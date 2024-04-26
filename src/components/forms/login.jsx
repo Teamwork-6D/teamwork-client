@@ -17,6 +17,7 @@ function LoginForm({ moveTo }) {
     e.preventDefault();
     setLoading(true);
 
+   try {
     fetch(`${app.server_url}/users/login`, {
       method: "POST",
       headers: {
@@ -27,14 +28,22 @@ function LoginForm({ moveTo }) {
       .then(async (res) => {
         const result = await res.json();
         const { user } = result;
-        setLoading(false);
+        if(user !==  undefined || user !== null) {
+          setLoading(false);
         localStorage.setItem("user", JSON.stringify(user));
         navigate("/projects");
+        } else {
+          throw new Error()
+        }
       })
       .catch((error) => {
-        setLoading(false);
-        setError("Login failed");
+       throw new Error('login failed')
       });
+   } catch (error) {
+    console.log(error);
+    setLoading(false);
+    setError("Login failed");
+   }
   }
 
   return (

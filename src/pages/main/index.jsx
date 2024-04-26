@@ -2,11 +2,18 @@ import React from "react";
 
 import "./styles.css";
 
+function NavSection() {
+  return <section className="main-page-nav"></section>;
+}
+
 function MainPage() {
   return (
     <section className="main-page">
-      <section className="main-page-nav"></section>
+      <NavSection />
       <section className="columns-list">
+        <div className="column-item"></div>
+        <div className="column-item"></div>
+        <div className="column-item"></div>
         <div className="column-item"></div>
         <div className="column-item"></div>
         <div className="column-item"></div>

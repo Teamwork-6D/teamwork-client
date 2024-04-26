@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 export function ProtectMainRoute({ children }) {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  if (!user || user === null) {
+  if (!user || user === null || user === undefined) {
     return <Navigate to="/" />;
   }
 
@@ -14,7 +14,7 @@ export function ProtectMainRoute({ children }) {
 export function ProtectAuthRoute({ children }) {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  if (user && user !== null) {
+  if (user && user !== null && user !== undefined) {
     return <Navigate to="/projects" />;
   }
 
