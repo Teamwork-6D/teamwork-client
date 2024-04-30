@@ -13,7 +13,7 @@ export function CreateProjectPopup({ getAllProjects, closeModal }) {
 
 
     useEffect(() => {
-      const userInfo = JSON.parse(localStorage.getItem("user"));
+      const userInfo = JSON.parse(localStorage.getItem("user"));git
       if(userInfo && userInfo !== undefined && userInfo !== null) {
         setUserData(userInfo)
       }
