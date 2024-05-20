@@ -28,4 +28,5 @@ Contents
 
    how_to_use
    design
+   technologies
    credits
