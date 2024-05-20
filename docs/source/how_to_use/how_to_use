@@ -1,0 +1,12 @@
+How to Use
+==========
+
+This area provides various guides on how to use the project effectively.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: How to Use:
+
+   getting_data
+   selecting_all_data
+   selecting_specific_data
