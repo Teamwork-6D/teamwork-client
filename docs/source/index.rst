@@ -1,24 +1,30 @@
 Teamwork App
 ============
 
+Description
+-----------
+
 The **Teamwork App** is a project management tool for your team 
 that allows them to be given different roles within the project and see the progress each part has made.
-It pulls data from MongoDB and offers a *simple* and *intuitive* API.
+
+
+The main language of the project is Python along with various libraries. The database is coded using MongoDB.
+   
+   Contents
+   --------
+   
+   .. toctree::
+   
+      usage
+      api
+
+
 
 Contents
---------
+------------------
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Contents:
+   :maxdepth: 2
 
-   usage
-   api
-   how_to_use/how_to_use
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   how_to_use
+   credits
