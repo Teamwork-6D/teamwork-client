@@ -27,4 +27,5 @@ Contents
    :maxdepth: 2
 
    how_to_use
+   design
    credits
