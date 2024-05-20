@@ -7,7 +7,7 @@ leveraging a clean and modern aesthetic that prioritizes clarity, usability, and
 With a consistent visual language across all interfaces, the app maintains a cohesive and user-friendly experience throughout the various pages and components. 
 The design principles employed emphasize simplicity, intuitive navigation, and a focus on essential features, ensuring a distraction-free environment for productive teamwork and task management.
 
-Landing Page:
+**Landing Page**:
 The landing page follows a minimalist design approach, with a clean and uncluttered layout. The page serves as an introduction to the app and its core functionalities. The design elements include:
 
 A neutral color scheme with a predominantly white background, creating a modern and professional aesthetic.
@@ -17,7 +17,7 @@ Optional use of subtle graphics or icons to complement the textual content, if a
 A prominent call-to-action button or link, encouraging users to get started with the app.
 
 
-Project Page:
+**Project Page**:
 The project page maintains a consistent design language with the landing page. It is designed to provide a clear overview of the user's projects and facilitate project creation and management. The key design elements include:
 
 A clean and organized layout, with projects listed in a structured manner (e.g., cards, lists, or tables).
@@ -27,7 +27,7 @@ Clear and intuitive controls or buttons for creating new projects, accessing pro
 Responsive design principles to ensure optimal viewing experience across various devices and screen sizes.
 
 
-Task Page:
+**Task Page**:
 The task page is dedicated to managing and tracking tasks within a specific project. The design aims to provide a clear overview of tasks while enabling easy task creation, assignment, and updates. The key design elements include:
 
 A structured layout for displaying task lists or boards, with tasks organized in a logical and visually appealing manner (e.g., cards, lists, or tables).
@@ -37,7 +37,7 @@ Clear and intuitive controls or buttons for creating new tasks, assigning tasks,
 Optional use of filtering or sorting options to help users quickly locate and manage tasks based on specific criteria.
 
 
-Popup Confirmations:
+**Popup Confirmations**:
 Throughout the app, popup confirmations are used to ensure user actions are intentional and to prevent accidental data loss or unintended changes. The design of these popups should adhere to the following principles:
 
 A clean and simple layout, with clear and concise messaging.
