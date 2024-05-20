@@ -12,15 +12,20 @@ Contents
 --------
 
 .. toctree::
+   :maxdepth: 1
+   :caption: How to Use:
+   :hidden: true
+
+   how_to_use/getting_data
+   how_to_use/selecting_all_data
+   how_to_use/selecting_specific_data
+
+.. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    usage
    api
-   how_to_use
-      getting_data
-      selecting_all_data
-      selecting_specific_data
 
 Indices and tables
 ==================
