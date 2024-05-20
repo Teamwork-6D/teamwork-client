@@ -17,7 +17,7 @@ Contents
 
    usage
    api
-   how-to-use
+   how_to_use
 
 Indices and tables
 ==================
