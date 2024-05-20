@@ -18,6 +18,9 @@ Contents
    usage
    api
    how_to_use
+      getting_data
+      selecting_all_data
+      selecting_specific_data
 
 Indices and tables
 ==================
