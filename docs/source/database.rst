@@ -32,8 +32,6 @@ Selecting Specific Data
 To select specific data from a table, the user will need to specify the criteria for the data selection. This will call the appropriate method in the dbManager class to fetch the desired data based on the given criteria.
 
 
-
-
 Generating all the cards
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=========================
 The algorithm reads the database to extract information about where each of the cards are in current time. Whether this is in Todos, in progress or finished. This is so that the correct tables can then be populated so that the cards can be created in the correct columns each time and so that they are updated accurately.
