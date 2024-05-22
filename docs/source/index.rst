@@ -18,6 +18,7 @@ Contents
 
    how_to_use
    design
+   database
    technologies
    installation
    credits
