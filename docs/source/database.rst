@@ -3,14 +3,13 @@ Database
 .. _database
 
 Using the Database
-~~~~~~~~~~~~~~~~~~
+-------------------
 The database is a MongoDB DB. The program interacts with the database through the database builder and mangaer functions, and uses pgAdmin as a connector.
 This section is used to show the structure of the database and various cases on inserting, updating and deleting data in the database.
 
 
 How to use the Project:
-~~~~~~~~~~~~~~~~~~~~~~~~
-
+------------------------
 
 Getting Data from the Database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
