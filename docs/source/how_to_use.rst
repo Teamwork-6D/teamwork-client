@@ -2,7 +2,7 @@
 How to use the Project
 =======================
 
-This area is used to provide various guides on how to use the Teamwork App as intended and avoid various issues.
+This page is to provide the user a clesr guide on how to use the Teamwork App as intended and to ensure they don't run into any issues.
 
 ## Getting Started with Create React App
 
@@ -14,29 +14,13 @@ In the project directory, you can run:
 
 - **npm start**: Runs the app in the development mode.
 - **npm test**: Launches the test runner in the interactive watch mode.
-- **npm run build**: Builds the app for production.
-- **npm run eject**: Ejects the app from Create React App.
 
 See the `Create React App documentation <https://facebook.github.io/create-react-app/docs/getting-started>`_ for more information.
 
-### Advanced Configuration
-
-This section has moved here: :doc:`advanced-configuration`.
-
-### Deployment
-
-This section has moved here: :doc:`deployment`.
-
-### Troubleshooting
-
-This section has moved here: :doc:`troubleshooting`.
-
 .. _how_to_use:
 
-How to use the Project
+How to use the Project:
 =======================
-
-This area is used to provide various guides on how to use the Teamwork App as intended and avoid various issues.
 
 Getting Data from the Database
 ===============================
