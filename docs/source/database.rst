@@ -9,5 +9,5 @@ This section is used to show the structure of the database and various cases on 
 
 
 Generating all the cards
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 The algorithm reads the database to extract information about where each of the cards are in current time. Whether this is in Todos, in progress or finished. This is so that the correct tables can then be populated so that the cards can be created in the correct columns each time and so that they are updated accurately.
