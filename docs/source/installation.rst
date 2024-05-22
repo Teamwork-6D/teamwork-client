@@ -25,7 +25,9 @@ To install all required libraries for the Teamwork App, run the following comman
 
 .. code-block:: console
 
-    pip install -r requirements.txt
+    `npm start`
+    `npm test`
+
 
 - PyMongo
 
