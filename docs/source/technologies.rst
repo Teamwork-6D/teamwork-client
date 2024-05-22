@@ -9,4 +9,5 @@ The technologies we used in the project:
 
 
 Then for the documentation we used:
+
 - `Python <https://docs.python.org/3/>`_: Version 3.12 
