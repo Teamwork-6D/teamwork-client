@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export function CreateColumnPodpup() {
+export function CreateColumnPopup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -27,3 +27,5 @@ export function CreateColumnPodpup() {
     </>
   );
 }
+
+export function editColumnPopup() {}
