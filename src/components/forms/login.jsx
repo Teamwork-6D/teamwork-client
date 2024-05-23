@@ -36,9 +36,12 @@ function LoginForm({ moveTo }) {
           throw new Error()
         }
       })
+      // In login.jsx within your handleSubmit function
       .catch((error) => {
-       throw new Error('login failed')
+        console.error(error); // Log the error for debugging
+        setError('Login failed'); // Update the state to display an error message
       });
+
    } catch (error) {
     console.log(error);
     setLoading(false);

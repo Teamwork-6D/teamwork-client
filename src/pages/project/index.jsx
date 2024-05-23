@@ -12,73 +12,66 @@ import "./styles.css";
 
 function ProjectPage() {
   const [projects, setProjects] = useState([]);
-  const [showCreateProjectPopup, setShowCreatePopup] = useState(false);
-  const [showDeleteProjectPopup, setShowDeleteProjectPopup] = useState(false);
-  const [showEditProjectPopup, setShowEditProjectPopup] = useState(false);
   const [selectedProject, setSelectedProject] = useState({});
+  const [openPopup, setOpenPopup] = useState(null);
 
-  function handleGetAllUserProjects() {
-    const userData = JSON.parse(localStorage.getItem("user"));
-
-    fetch(`${app.server_url}/projects`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userData.token}`,
-      },
-    })
-      .then(async (res) => {
-        const result = await res.json();
-        setProjects(result.projects);
-      })
-      .catch((error) => {
-        console.log(error);
+  const fetchProjects = async () => {
+    try {
+      const userData = JSON.parse(localStorage.getItem("user"));
+      const response = await fetch(`${app.server_url}/projects`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userData.token}`,
+        },
       });
-  }
+      const result = await response.json();
+      setProjects(result.projects);
+    } catch (error) {
+      // Display error message to user
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    handleGetAllUserProjects();
+    fetchProjects();
   }, []);
+
+  const handleOpenPopup = (type) => {
+    setOpenPopup(type);
+  };
+
+  const handleClosePopup = () => {
+    setOpenPopup(null);
+  };
 
   return (
     <section className="project-page">
       <ProjectList
         projects={projects}
-        openCreateProjectPopup={() => {
-          setShowCreatePopup(true);
-        }}
-        openDeleteProjectPopup={() => {
-          setShowDeleteProjectPopup(true);
-        }}
-        openEditProjectPopup={() => {
-          setShowEditProjectPopup(true);
-        }}
+        openCreateProjectPopup={() => handleOpenPopup("create")}
+        openDeleteProjectPopup={() => handleOpenPopup("delete")}
+        openEditProjectPopup={() => handleOpenPopup("edit")}
         setSelectedProject={setSelectedProject}
       />
-      {showCreateProjectPopup && (
+      {openPopup === "create" && (
         <CreateProjectPopup
-          getAllProjects={handleGetAllUserProjects}
-          closeModal={() => {
-            setShowCreatePopup(false);
-          }}
+          getAllProjects={fetchProjects}
+          closeModal={handleClosePopup}
         />
       )}
-      {showDeleteProjectPopup && (
+      {openPopup === "delete" && (
         <DeleteProjectPopup
           project={selectedProject}
-          closeModal={() => {
-            setShowDeleteProjectPopup(false);
-          }}
-          getAllProjects={handleGetAllUserProjects}
+          closeModal={handleClosePopup}
+          getAllProjects={fetchProjects}
         />
       )}
-      {showEditProjectPopup && (
+      {openPopup === "edit" && (
         <EditProjectPopup
           project={selectedProject}
-          closeModal={() => {
-            setShowEditProjectPopup(false);
-          }}
-          getAllProjects={handleGetAllUserProjects}
+          closeModal={handleClosePopup}
+          getAllProjects={fetchProjects}
         />
       )}
     </section>

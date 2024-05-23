@@ -38,7 +38,9 @@ export function CreateTaskPodpup() {
   );
 }
 
-export function DeleteTaskPopup() {
+export function DeleteTaskPopup(task = {
+  title: "Delete Task"
+}, error = 'some error') {
     return (
     <>
       <section className="popup-bg-overlay"></section>
