@@ -271,7 +271,7 @@ export function ViewProjectUsersPopup({ closePopup }) {
 
   useEffect(() => {
     handleGetProjectData();
-  }, []);
+  }, [projectData]);
 
   function handleGetProjectData() {
     const project = JSON.parse(localStorage.getItem("project"));
@@ -307,7 +307,7 @@ export function ViewProjectUsersPopup({ closePopup }) {
     })
       .then(async (res) => {
         const data = await res.json();
-        setProjectData(data.project);
+        console.log(data.project);
       })
       .catch((error) => {
         console.log(error);
