@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import sockets from "../../sockets";
 
 import "./styles.css";
 
@@ -26,6 +27,9 @@ function ProjectItem({
         <button
           className="project-item-btn"
           onClick={() => {
+            sockets.connect();
+            sockets.emit("join-project", project);
+            localStorage.setItem("project", JSON.stringify(project));
             setSelectedProject(project);
             navigate(`/projects/${project._id}`);
           }}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { app } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 import ProjectList from "../../components/project/project-list";
 import {
@@ -11,6 +12,7 @@ import {
 import "./styles.css";
 
 function ProjectPage() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState({});
   const [openPopup, setOpenPopup] = useState(null);
@@ -47,6 +49,14 @@ function ProjectPage() {
 
   return (
     <section className="project-page">
+      <section style={{width: '100%', display: "flex", justifyContent: 'end'}}>
+        <button onClick={() => {
+          localStorage.removeItem('user');
+          localStorage.removeItem('project');
+          localStorage.removeItem('column');
+          navigate('/')
+        }} style={{width: '150px', height: '40px', margin: '0.3em'}}>Logout</button>
+      </section>
       <ProjectList
         projects={projects}
         openCreateProjectPopup={() => handleOpenPopup("create")}
