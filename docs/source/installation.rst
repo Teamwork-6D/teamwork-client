@@ -8,8 +8,8 @@ Cloning the repository using Git
 
 Clone the project repository from GitHub by following the steps outlined in the `GitHub Website <https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository>`_.
 Github repository:
-- Client side - <https://github.com/Teamwork-6D/teamwork-client>`_.
-- Server side - <https://github.com/Teamwork-6D/teamwork-server>`_.
+- `Client Side Repository <https://github.com/Teamwork-6D/teamwork-client>`_.
+- `Server Side Repository <https://github.com/Teamwork-6D/teamwork-server>`_.
 
 Node Installation
 ------------------------------
