@@ -5,6 +5,7 @@ import LandingPage from "./pages/landing";
 import MainPage from "./pages/main";
 import ProjectPage from "./pages/project";
 import AuthPage from "./pages/auth";
+import ProjectLogs from "./pages/log";
 import { ProtectAuthRoute, ProtectMainRoute } from "./components/router";
 
 import "./App.css";
@@ -38,6 +39,14 @@ function App() {
         element={
           <ProtectMainRoute>
             <MainPage />
+          </ProtectMainRoute>
+        }
+      />
+      <Route
+        path="/projects/:id/logs"
+        element={
+          <ProtectMainRoute>
+            <ProjectLogs />
           </ProtectMainRoute>
         }
       />
