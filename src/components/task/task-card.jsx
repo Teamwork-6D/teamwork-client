@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Draggable } from "react-beautiful-dnd";
 import {
   AssignUserToTaskPopup,
   DeleteTaskPopup,
@@ -7,7 +7,7 @@ import {
   ViewTaskPopup,
 } from "./popups";
 
-export function TaskCard({ task }) {
+export function TaskCard({ task, index }) {
   const [showDeleteTaskPopup, setShowDeleteTaskPopup] = useState(false);
   const [showEditTaskPopup, setShowEditTaskPopup] = useState(false);
   const [viewTaskPopup, setviewTaskPopup] = useState(false);
@@ -16,21 +16,34 @@ export function TaskCard({ task }) {
 
   return (
     <>
-      <div className="task-item">
-        <h5>{task.title}</h5>
-        <span>{task.about}</span>
-        {task.dueDate && (
-          <span className="task-item-due-date">Due: {task.dueDate}</span>
+      <Draggable draggableId={task._id} index={index}>
+        {(provided, snapshot) => (
+          <div
+            className={`task-item ${snapshot.isDragging ? "dragging" : ""}`}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            ref={provided.innerRef}
+          >
+            <p>{task._id}</p>
+            <h5>{task.title}</h5>
+            <span>{task.about}</span>
+            {task.dueDate && (
+              <span className="task-item-due-date">Due: {task.dueDate}</span>
+            )}
+            <section className="task-item-btn-controls">
+              <button onClick={() => setShowAssignUserToTaskPopup(true)}>
+                Add User
+              </button>
+              <button onClick={() => setviewTaskPopup(true)}>Open</button>
+              <button onClick={() => setShowEditTaskPopup(true)}>Edit</button>
+              <button onClick={() => setShowDeleteTaskPopup(true)}>
+                Delete
+              </button>
+            </section>
+          </div>
         )}
-        <section className="task-item-btn-controls">
-          <button onClick={() => setShowAssignUserToTaskPopup(true)}>
-            Add User
-          </button>
-          <button onClick={() => setviewTaskPopup(true)}>Open</button>
-          <button onClick={() => setShowEditTaskPopup(true)}>Edit</button>
-          <button onClick={() => setShowDeleteTaskPopup(true)}>Delete</button>
-        </section>
-      </div>
+      </Draggable>
+
       {viewTaskPopup && (
         <ViewTaskPopup taskData={task} closePopup={setviewTaskPopup} />
       )}
@@ -41,7 +54,10 @@ export function TaskCard({ task }) {
         <EditTaskPoppup task={task} closePopup={setShowEditTaskPopup} />
       )}
       {showAssignUserToTaskPopup && (
-        <AssignUserToTaskPopup taskData={task} closePopup={setShowAssignUserToTaskPopup} />
+        <AssignUserToTaskPopup
+          taskData={task}
+          closePopup={setShowAssignUserToTaskPopup}
+        />
       )}
     </>
   );
